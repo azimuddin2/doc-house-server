@@ -1,0 +1,23 @@
+[
+    {
+        "category": "cosmetic-dentistry",
+        "name": "Cosmetic Dentistry",
+        "image": "https://i.postimg.cc/R0g75rfv/service-cosmetic-dentistry.png",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error ",
+        "details": "Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    },
+    {
+        "category": "oral-surgery",
+        "name": "Oral Surgery",
+        "image": "https://i.postimg.cc/7ZJ2fCpJ/service-oral-surgery.png",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error ",
+        "details": "Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    },
+    {
+        "category": "gastrology-therapy",
+        "name": "Electro Gastrology Therapy",
+        "image": "https://i.postimg.cc/xj7jqsYg/service-gastrology-therapy.png",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error ",
+        "details": "Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    }
+]
