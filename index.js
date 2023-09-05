@@ -19,18 +19,25 @@ const client = new MongoClient(uri, {
     }
 });
 
-async function run(){
-    try{
+async function run() {
+    try {
         const ourServicesCollection = client.db('docHouse').collection('ourService');
-    
-        app.get('/our-services', async(req, res) => {
+        const expertDoctorsCollection = client.db('docHouse').collection('expertDoctor')
+
+        app.get('/our-services', async (req, res) => {
             const query = {};
             const services = await ourServicesCollection.find(query).toArray();
             res.send(services);
         });
 
+        app.get('/expert-doctors', async (req, res) => {
+            const query = {};
+            const expertDoctors = await expertDoctorsCollection.find(query).toArray();
+            res.send(expertDoctors);
+        });
+
     }
-    finally{}
+    finally { }
 }
 run().catch(console.dir);
 
