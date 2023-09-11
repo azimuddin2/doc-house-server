@@ -2,6 +2,8 @@
     {
         "_id": 1,
         "name": "Teeth Orthodontics",
+        "image": "https://i.postimg.cc/jqnMfVpx/teeth-orthodontics.png",
+        "price": 120,
         "slots": [
             "08.00 AM - 08.30 AM",
             "08.30 AM - 09.00 AM",
@@ -24,6 +26,8 @@
     {
         "_id": 2,
         "name": "Cosmetic Dentistry",
+        "image": "https://i.postimg.cc/4xkqy4nR/cosmetic-dentistry.png",
+        "price": 170,
         "slots": [
             "08.00 AM - 08.30 AM",
             "08.30 AM - 09.00 AM",
@@ -46,6 +50,8 @@
     {
         "_id": 3,
         "name": "Teeth Cleaning",
+        "image": "https://i.postimg.cc/3J72xP7b/teeth-cleaning.png",
+        "price": 100,
         "slots": [
             "08.00 AM - 08.30 AM",
             "08.30 AM - 09.00 AM",
@@ -68,6 +74,8 @@
     {
         "_id": 4,
         "name": "Cavity Protection",
+        "image": "https://i.postimg.cc/VvTyDjYJ/cavity-protection.png",
+        "price": 150,
         "slots": [
             "08.00 AM - 08.30 AM",
             "08.30 AM - 09.00 AM",
@@ -90,6 +98,8 @@
     {
         "_id": 5,
         "name": "Pediatric Dental",
+        "image": "https://i.postimg.cc/ZR8FfZ4p/pediatric-dental.png",
+        "price": 170,
         "slots": [
             "08.00 AM - 08.30 AM",
             "08.30 AM - 09.00 AM",
@@ -112,6 +122,8 @@
     {
         "_id": 6,
         "name": "Oral Surgery",
+        "image": "https://i.postimg.cc/fbFr4MGP/oral-surgery.png",
+        "price": 200,
         "slots": [
             "08.00 AM - 08.30 AM",
             "08.30 AM - 09.00 AM",

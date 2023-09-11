@@ -23,6 +23,7 @@ async function run() {
     try {
         const ourServicesCollection = client.db('docHouse').collection('ourService');
         const expertDoctorsCollection = client.db('docHouse').collection('expertDoctor')
+        const servicesCollection = client.db('docHouse').collection('services');
 
         app.get('/our-services', async (req, res) => {
             const query = {};
@@ -34,6 +35,12 @@ async function run() {
             const query = {};
             const expertDoctors = await expertDoctorsCollection.find(query).toArray();
             res.send(expertDoctors);
+        });
+
+        app.get('/services', async (req, res) => {
+            const query = {};
+            const services = await servicesCollection.find(query).toArray();
+            res.send(services);
         });
 
     }
