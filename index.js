@@ -24,6 +24,7 @@ async function run() {
         const ourServicesCollection = client.db('docHouse').collection('ourService');
         const expertDoctorsCollection = client.db('docHouse').collection('expertDoctor')
         const servicesCollection = client.db('docHouse').collection('services');
+        const bookingCollection = client.db('docHouse').collection('booking');
 
         app.get('/our-services', async (req, res) => {
             const query = {};
@@ -37,10 +38,55 @@ async function run() {
             res.send(expertDoctors);
         });
 
+
+        // service operation
         app.get('/services', async (req, res) => {
             const query = {};
             const services = await servicesCollection.find(query).toArray();
             res.send(services);
+        });
+
+        app.get('/available', async (req, res) => {
+            const date = req.query.date;
+
+            // step 1: get all services
+            const services = await servicesCollection.find().toArray();
+
+            // step 2: get the booking of that day. output: [{}, {}, {}, {}, {}, {}]
+            const query = { date: date };
+            const bookings = await bookingCollection.find(query).toArray();
+
+            // step 3: for each service
+            services.forEach(service => {
+                // step 4: find bookings for that service. output: [{}, {}, {}]
+                const serviceBookings = bookings.filter(book => book.treatment === service.name);
+                // step 5: select slots for the service bookings: ['', '', '']
+                const bookedSlots = serviceBookings.map(book => book.slot);
+                // step 6: select those slots that are not in bookedSlots
+                const available = service.slots.filter(slot => !bookedSlots.includes(slot));
+                // step 7: set available to  slots to make it easier
+                service.slots = available;
+            })
+            res.send(services);
+        });
+        
+
+        // booking collection
+        app.post('/booking', async (req, res) => {
+            const booking = req.body;
+            const query = {
+                treatment: booking.treatment,
+                date: booking.date,
+                patientEmail: booking.patientEmail
+            };
+            const exists = await bookingCollection.findOne(query);
+            if (exists) {
+                return res.send({ success: false, booking: exists })
+            }
+            else {
+                const result = await bookingCollection.insertOne(booking);
+                return res.send({ success: true, result });
+            }
         });
 
     }
