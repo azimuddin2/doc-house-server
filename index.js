@@ -25,7 +25,9 @@ async function run() {
         const expertDoctorsCollection = client.db('docHouse').collection('expertDoctor')
         const servicesCollection = client.db('docHouse').collection('services');
         const bookingCollection = client.db('docHouse').collection('booking');
+        const reviewsCollection = client.db('docHouse').collection('reviews');
 
+        // home page api
         app.get('/our-services', async (req, res) => {
             const query = {};
             const services = await ourServicesCollection.find(query).toArray();
@@ -39,7 +41,7 @@ async function run() {
         });
 
 
-        // service operation
+        // service api related
         app.get('/services', async (req, res) => {
             const query = {};
             const services = await servicesCollection.find(query).toArray();
@@ -69,9 +71,9 @@ async function run() {
             })
             res.send(services);
         });
-        
 
-        // booking collection
+
+        // booking api related
         app.post('/booking', async (req, res) => {
             const booking = req.body;
             const query = {
@@ -88,6 +90,15 @@ async function run() {
                 return res.send({ success: true, result });
             }
         });
+
+
+        // reviews api related
+        app.get('/reviews', async (req, res) => {
+            const query = {};
+            const reviews = await reviewsCollection.find(query).toArray();
+            res.send(reviews);
+        });
+
 
     }
     finally { }

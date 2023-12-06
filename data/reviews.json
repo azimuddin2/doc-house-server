@@ -1,0 +1,44 @@
+[
+    {
+        "image": "https://i.ibb.co/wYh7SZt/people1.png",
+        "name": "Awlad Hossain",
+        "location": "Businessman",
+        "rating": 5,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, words which don't look even slightly believable."
+    },
+    {
+        "image": "https://i.ibb.co/84jYPPL/people2.png",
+        "name": "Miftahul Jannat",
+        "location": "India",
+        "rating": 3,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, words which don't look even slightly believable."
+    },
+    {
+        "image": "https://i.ibb.co/2Y7YHdM/ayman-sadiq.jpg",
+        "name": "Ayman Sadiq",
+        "location": "Bangladesh",
+        "rating": 4,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, words which don't look even slightly believable."
+    },
+    {
+        "image": "https://i.ibb.co/zGyRG5y/jhankar-mahbub.jpg",
+        "name": "Jhankar Mahbub",
+        "location": "USA",
+        "rating": 2,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, words which don't look even slightly believable."
+    },
+    {
+        "image": "https://i.ibb.co/fXMGY4c/azim.png",
+        "name": "Azim Uddin",
+        "location": "Bangladesh",
+        "rating": 5,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, words which don't look even slightly believable."
+    },
+    {
+        "image": "https://i.ibb.co/w6k3GRW/people3.png",
+        "name": "Tahiya Faiza",
+        "location": "England",
+        "rating": 4,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, words which don't look even slightly believable."
+    }
+]
