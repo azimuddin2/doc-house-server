@@ -6,7 +6,76 @@
         "location": "Dhanmondi, Dhaka, Bangladesh",
         "date": "Available On sat, 21 December",
         "price": 100,
-        "button": "btn btn-outline btn-secondary group-hover:text-white"
+        "rating": 3,
+        "button": "btn btn-outline btn-secondary group-hover:text-white",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "educations": [
+            {
+                "id": 1,
+                "university": "American Dental Medical University",
+                "graduate": "BDS",
+                "year": "1998 - 2003"
+            },
+            {
+                "id": 2,
+                "university": "American Dental Medical University",
+                "graduate": "MDS",
+                "year": "2003 - 2005"
+            }
+        ],
+        "experiences": [
+            {
+                "id": 1,
+                "hospital": "Glowing Smiles Family Dental Clinic",
+                "year": "2010 - Present (5 years)"
+            },
+            {
+                "id": 2,
+                "hospital": "Comfort Care Dental Clinic",
+                "year": "2007 - 2010 (3 years)"
+            },
+            {
+                "id": 3,
+                "hospital": "Dream Smile Dental Practice",
+                "year": " 2005 - 2007 (2 years)"
+            }
+        ],
+        "services": [
+            "Tooth cleaning",
+            "Root Canal Therapy",
+            "Implants",
+            "Composite Bonding",
+            "Fissure Sealants",
+            "Surgical Extractions"
+        ],
+        "awards": [
+            {
+                "id": 1,
+                "year": "July 2019",
+                "subject": "Humanitarian Award",
+                "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus.Interdum et malesuada fames ac ante ipsum primis in faucibus."
+            },
+            {
+                "id": 2,
+                "year": "March 2011",
+                "subject": "Certificate for International Volunteer Service",
+                "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus.Interdum et malesuada fames ac ante ipsum primis in faucibus."
+            },
+            {
+                "id": 3,
+                "year": "May 2008",
+                "subject": "The Dental Professional of The Year Award",
+                "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus.Interdum et malesuada fames ac ante ipsum primis in faucibus."
+            }
+        ],
+        "specializations": [
+            "Children Care",
+            "Dental Care",
+            "Oral and Maxillofacial Surgery",
+            "Orthodontist",
+            "Periodontist",
+            "Prosthodontics"
+        ]
     },
     {
         "image": "https://i.postimg.cc/X7QCKYMm/expert-doctor2.png",
@@ -15,7 +84,76 @@
         "location": "Dhanmondi, Dhaka, Bangladesh",
         "date": "Available On sun, 22 December",
         "price": 200,
-        "button": "btn btn-secondary text-white"
+        "rating": 5,
+        "button": "btn btn-secondary text-white",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "educations": [
+            {
+                "id": 1,
+                "university": "American Dental Medical University",
+                "graduate": "BDS",
+                "year": "1998 - 2003"
+            },
+            {
+                "id": 2,
+                "university": "American Dental Medical University",
+                "graduate": "MDS",
+                "year": "2003 - 2005"
+            }
+        ],
+        "experiences": [
+            {
+                "id": 1,
+                "hospital": "Glowing Smiles Family Dental Clinic",
+                "year": "2010 - Present (5 years)"
+            },
+            {
+                "id": 2,
+                "hospital": "Comfort Care Dental Clinic",
+                "year": "2007 - 2010 (3 years)"
+            },
+            {
+                "id": 3,
+                "hospital": "Dream Smile Dental Practice",
+                "year": " 2005 - 2007 (2 years)"
+            }
+        ],
+        "services": [
+            "Tooth cleaning",
+            "Root Canal Therapy",
+            "Implants",
+            "Composite Bonding",
+            "Fissure Sealants",
+            "Surgical Extractions"
+        ],
+        "awards": [
+            {
+                "id": 1,
+                "year": "July 2019",
+                "subject": "Humanitarian Award",
+                "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus.Interdum et malesuada fames ac ante ipsum primis in faucibus."
+            },
+            {
+                "id": 2,
+                "year": "March 2011",
+                "subject": "Certificate for International Volunteer Service",
+                "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus.Interdum et malesuada fames ac ante ipsum primis in faucibus."
+            },
+            {
+                "id": 3,
+                "year": "May 2008",
+                "subject": "The Dental Professional of The Year Award",
+                "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus.Interdum et malesuada fames ac ante ipsum primis in faucibus."
+            }
+        ],
+        "specializations": [
+            "Children Care",
+            "Dental Care",
+            "Oral and Maxillofacial Surgery",
+            "Orthodontist",
+            "Periodontist",
+            "Prosthodontics"
+        ]
     },
     {
         "image": "https://i.postimg.cc/5tMb687V/expert-doctor3.png",
@@ -24,6 +162,75 @@
         "location": "Dhanmondi, Dhaka, Bangladesh",
         "date": "Available On Mon, 23 December",
         "price": 150,
-        "button": "btn btn-outline btn-secondary group-hover:text-white"
+        "rating": 4,
+        "button": "btn btn-outline btn-secondary group-hover:text-white",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "educations": [
+            {
+                "id": 1,
+                "university": "American Dental Medical University",
+                "graduate": "BDS",
+                "year": "1998 - 2003"
+            },
+            {
+                "id": 2,
+                "university": "American Dental Medical University",
+                "graduate": "MDS",
+                "year": "2003 - 2005"
+            }
+        ],
+        "experiences": [
+            {
+                "id": 1,
+                "hospital": "Glowing Smiles Family Dental Clinic",
+                "year": "2010 - Present (5 years)"
+            },
+            {
+                "id": 2,
+                "hospital": "Comfort Care Dental Clinic",
+                "year": "2007 - 2010 (3 years)"
+            },
+            {
+                "id": 3,
+                "hospital": "Dream Smile Dental Practice",
+                "year": " 2005 - 2007 (2 years)"
+            }
+        ],
+        "services": [
+            "Tooth cleaning",
+            "Root Canal Therapy",
+            "Implants",
+            "Composite Bonding",
+            "Fissure Sealants",
+            "Surgical Extractions"
+        ],
+        "awards": [
+            {
+                "id": 1,
+                "year": "July 2019",
+                "subject": "Humanitarian Award",
+                "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus.Interdum et malesuada fames ac ante ipsum primis in faucibus."
+            },
+            {
+                "id": 2,
+                "year": "March 2011",
+                "subject": "Certificate for International Volunteer Service",
+                "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus.Interdum et malesuada fames ac ante ipsum primis in faucibus."
+            },
+            {
+                "id": 3,
+                "year": "May 2008",
+                "subject": "The Dental Professional of The Year Award",
+                "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus.Interdum et malesuada fames ac ante ipsum primis in faucibus."
+            }
+        ],
+        "specializations": [
+            "Children Care",
+            "Dental Care",
+            "Oral and Maxillofacial Surgery",
+            "Orthodontist",
+            "Periodontist",
+            "Prosthodontics"
+        ]
     }
 ]

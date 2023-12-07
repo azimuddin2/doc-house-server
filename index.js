@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -39,6 +39,13 @@ async function run() {
             const expertDoctors = await expertDoctorsCollection.find(query).toArray();
             res.send(expertDoctors);
         });
+
+        app.get('/doctor-profile/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await expertDoctorsCollection.findOne(query);
+            res.send(result);
+        })
 
 
         // service api related
