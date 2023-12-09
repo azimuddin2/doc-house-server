@@ -21,11 +21,34 @@ const client = new MongoClient(uri, {
 
 async function run() {
     try {
+        const usersCollection = client.db('docHouse').collection('users');
         const ourServicesCollection = client.db('docHouse').collection('ourService');
         const expertDoctorsCollection = client.db('docHouse').collection('expertDoctor')
         const servicesCollection = client.db('docHouse').collection('services');
         const bookingCollection = client.db('docHouse').collection('booking');
         const reviewsCollection = client.db('docHouse').collection('reviews');
+
+
+        // users related api
+        app.get('/users', async (req, res) => {
+            const query = {};
+            const users = await usersCollection.find(query).toArray();
+            res.send(users);
+        })
+
+        app.post('/users', async (req, res) => {
+            const user = req.body;
+            const query = { email: user.email };
+
+            const existingUser = await usersCollection.findOne(query);
+            if (existingUser) {
+                return res.send({ message: 'user already exists' });
+            }
+
+            const result = await usersCollection.insertOne(user);
+            res.send(result);
+        });
+
 
         // home page api
         app.get('/our-services', async (req, res) => {
@@ -48,7 +71,7 @@ async function run() {
         })
 
 
-        // service api related
+        // services related api
         app.get('/services', async (req, res) => {
             const query = {};
             const services = await servicesCollection.find(query).toArray();
@@ -80,7 +103,7 @@ async function run() {
         });
 
 
-        // booking api related
+        // booking related api
         app.post('/booking', async (req, res) => {
             const booking = req.body;
             const query = {
@@ -99,7 +122,7 @@ async function run() {
         });
 
 
-        // reviews api related
+        // reviews related api
         app.get('/reviews', async (req, res) => {
             const query = {};
             const reviews = await reviewsCollection.find(query).toArray();
