@@ -129,6 +129,12 @@ async function run() {
             res.send(reviews);
         });
 
+        app.post('/reviews', async (req, res) => {
+            const reviewInfo = req.body;
+            const result = await reviewsCollection.insertOne(reviewInfo);
+            res.send(result);
+        });
+
 
     }
     finally { }
