@@ -48,7 +48,7 @@ async function run() {
 
         app.post('/jwt', (req, res) => {
             const user = req.body;
-            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
+            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '7d' });
             res.send({ token });
         });
 
@@ -62,6 +62,7 @@ async function run() {
             }
             next();
         };
+
 
         // users related api
         app.get('/users', verifyJWT, verifyAdmin, async (req, res) => {
@@ -107,6 +108,13 @@ async function run() {
                 },
             };
             const result = await usersCollection.updateOne(filter, updateDoc);
+            res.send(result);
+        });
+
+        app.delete('/users/:id', verifyJWT, verifyAdmin, async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await usersCollection.deleteOne(query);
             res.send(result);
         });
 
