@@ -45,6 +45,7 @@ async function run() {
         const expertDoctorsCollection = client.db('docHouse').collection('expertDoctor')
         const servicesCollection = client.db('docHouse').collection('services');
         const bookingCollection = client.db('docHouse').collection('booking');
+        const paymentCollection = client.db('docHouse').collection('payments');
         const reviewsCollection = client.db('docHouse').collection('reviews');
 
         app.post('/jwt', (req, res) => {
@@ -217,11 +218,19 @@ async function run() {
                 currency: 'usd',
                 payment_method_types: ['card']
             });
-            
+
             res.send({
                 clientSecret: paymentIntent.client_secret,
             });
         });
+
+
+        // payments related api
+        app.post('/payments', verifyJWT, async (req, res) => {
+            const paymentInfo = req.body;
+            const result = await paymentCollection.insertOne(paymentInfo);
+            res.send(result);
+        })
 
 
         // reviews related api
