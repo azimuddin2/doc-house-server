@@ -208,6 +208,22 @@ async function run() {
             res.send(result);
         });
 
+        app.patch('/booking/:id', verifyJWT, async (req, res) => {
+            const id = req.params.id;
+            const paymentInfo = req.body;
+            const filter = { _id: new ObjectId(id) };
+
+            const updateDoc = {
+                $set: {
+                    paid: true,
+                    transactionId: paymentInfo.transactionId
+                },
+            }
+            const updatedBooking = await bookingCollection.updateOne(filter, updateDoc);
+            const result = await paymentCollection.insertOne(paymentInfo);
+            res.send(result);
+        });
+
 
         // create payment intent 
         app.post('/create-payment-intent', async (req, res) => {
@@ -226,11 +242,16 @@ async function run() {
 
 
         // payments related api
-        app.post('/payments', verifyJWT, async (req, res) => {
-            const paymentInfo = req.body;
-            const result = await paymentCollection.insertOne(paymentInfo);
+        app.get('/payments', verifyJWT, async (req, res) => {
+            const email = req.query.email;
+            if (!email) {
+                res.send([]);
+            }
+
+            const query = { email: email };
+            const result = await paymentCollection.find(query).toArray();
             res.send(result);
-        })
+        });
 
 
         // reviews related api
