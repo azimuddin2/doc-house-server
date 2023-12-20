@@ -123,7 +123,7 @@ async function run() {
 
 
         // doctors related api
-        app.post('/doctors', async (req, res) => {
+        app.post('/doctors', verifyJWT, verifyAdmin, async (req, res) => {
             const doctorInfo = req.body;
             const query = { email: doctorInfo.email };
 
@@ -133,6 +133,12 @@ async function run() {
             }
 
             const result = await doctorsCollection.insertOne(doctorInfo);
+            res.send(result);
+        });
+
+        app.get('/doctors', verifyJWT, verifyAdmin, async (req, res) => {
+            const query = {};
+            const result = await doctorsCollection(query).toArray();
             res.send(result);
         });
 
