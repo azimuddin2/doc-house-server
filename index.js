@@ -69,10 +69,28 @@ async function run() {
 
 
         // users related api
+        app.get('/usersCount', async (req, res) => {
+            const result = await usersCollection.estimatedDocumentCount();
+            res.send({ usersCount: result });
+        })
+
         app.get('/users', verifyJWT, verifyAdmin, async (req, res) => {
-            const query = {};
-            const users = await usersCollection.find(query).toArray();
-            res.send(users);
+            const page = parseInt(req.query.page) || 0;
+            const limit = parseInt(req.query.limit) || 6;
+            const skip =  page * limit;
+
+            
+            const search = req.query.search;
+            let cursor;
+
+            if (search) {
+                cursor = usersCollection.find({ name: { $regex: search, $options: 'i' } });
+            } else {
+                cursor = usersCollection.find();
+            }
+
+            const result = await cursor.skip(skip).limit(limit).toArray();
+            res.send(result);
         });
 
         app.post('/users', async (req, res) => {
@@ -102,7 +120,7 @@ async function run() {
             res.send(result);
         })
 
-        app.patch('/users/admin/:id', async (req, res) => {
+        app.patch('/users/admin/:id', verifyJWT, verifyAdmin, async (req, res) => {
             const id = req.params.id;
             const filter = { _id: new ObjectId(id) };
 
@@ -148,7 +166,7 @@ async function run() {
             let cursor;
 
             if (query) {
-                cursor = doctorsCollection.find({ name: { $regex: query, $options: 'i' } })
+                cursor = doctorsCollection.find({ name: { $regex: query, $options: 'i' } });
             } else {
                 cursor = doctorsCollection.find();
             }
@@ -219,7 +237,7 @@ async function run() {
         });
 
 
-        
+
         // booking related api
         app.get('/bookings', verifyJWT, verifyAdmin, async (req, res) => {
             const date = req.query.date;
