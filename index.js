@@ -41,6 +41,7 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         const usersCollection = client.db('docHouse').collection('users');
+        const doctorsCollection = client.db('docHouse').collection('doctors');
         const ourServicesCollection = client.db('docHouse').collection('ourService');
         const expertDoctorsCollection = client.db('docHouse').collection('expertDoctor')
         const servicesCollection = client.db('docHouse').collection('services');
@@ -117,6 +118,21 @@ async function run() {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) };
             const result = await usersCollection.deleteOne(query);
+            res.send(result);
+        });
+
+
+        // doctors related api
+        app.post('/doctors', async (req, res) => {
+            const doctorInfo = req.body;
+            const query = { email: doctorInfo.email };
+
+            const existingDoctor = await doctorsCollection.findOne(query);
+            if (existingDoctor) {
+                return res.send({ message: 'Doctor already exists' });
+            }
+
+            const result = await doctorsCollection.insertOne(doctorInfo);
             res.send(result);
         });
 
