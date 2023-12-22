@@ -77,9 +77,9 @@ async function run() {
         app.get('/users', verifyJWT, verifyAdmin, async (req, res) => {
             const page = parseInt(req.query.page) || 0;
             const limit = parseInt(req.query.limit) || 6;
-            const skip =  page * limit;
+            const skip = page * limit;
 
-            
+
             const search = req.query.search;
             let cursor;
 
@@ -344,6 +344,20 @@ async function run() {
             const reviewInfo = req.body;
             const result = await reviewsCollection.insertOne(reviewInfo);
             res.send(result);
+        });
+
+
+        // admin stats related api
+        app.get('/admin-stats', verifyJWT, verifyAdmin, async (req, res) => {
+            const doctors = await doctorsCollection.estimatedDocumentCount();
+            const patients = await usersCollection.estimatedDocumentCount();
+            const appointments = await bookingCollection.estimatedDocumentCount();
+
+            res.send({
+                doctors,
+                patients,
+                appointments
+            });
         });
 
 
