@@ -79,7 +79,6 @@ async function run() {
             const limit = parseInt(req.query.limit) || 6;
             const skip = page * limit;
 
-
             const search = req.query.search;
             let cursor;
 
@@ -162,16 +161,20 @@ async function run() {
         });
 
         app.get('/doctors', verifyJWT, verifyAdmin, async (req, res) => {
-            const query = req.query.search;
+            const page = parseInt(req.query.page) || 0;
+            const limit = parseInt(req.query.limit) || 6;
+            const skip = page * limit;
+
+            const search = req.query.search;
             let cursor;
 
-            if (query) {
-                cursor = doctorsCollection.find({ name: { $regex: query, $options: 'i' } });
+            if (search) {
+                cursor = doctorsCollection.find({ name: { $regex: search, $options: 'i' } });
             } else {
                 cursor = doctorsCollection.find();
             }
 
-            const result = await cursor.toArray();
+            const result = await cursor.skip(skip).limit(limit).toArray();
             res.send(result);
         });
 
