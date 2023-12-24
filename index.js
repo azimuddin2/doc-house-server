@@ -105,6 +105,24 @@ async function run() {
             res.send(result);
         });
 
+        app.put('/users', verifyJWT, async (req, res) => {
+            const updateInfo = req.body;
+            const { name, phone, email, image } = updateInfo;
+
+            const filter = { email: email };
+            const options = { upsert: true };
+
+            const updateDoc = {
+                $set: {
+                    name,
+                    image,
+                    phone
+                }
+            };
+            const result = await usersCollection.updateOne(filter, updateDoc, options);
+            res.send(result);
+        });
+
         app.get('/users/admin/:email', verifyJWT, async (req, res) => {
             const email = req.params.email;
             const decodedEmail = req.decoded.email;
