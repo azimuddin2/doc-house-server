@@ -138,7 +138,14 @@ async function run() {
 
         app.get('/doctors', verifyJWT, verifyAdmin, async (req, res) => {
             const query = {};
-            const result = await doctorsCollection(query).toArray();
+            const result = await doctorsCollection.find(query).toArray();
+            res.send(result);
+        });
+
+        app.delete('/doctors/:id', verifyJWT, verifyAdmin, async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await doctorsCollection.deleteOne(query);
             res.send(result);
         });
 
@@ -197,6 +204,14 @@ async function run() {
 
 
         // booking related api
+        app.get('/bookings', verifyJWT, verifyAdmin, async (req, res) => {
+            const date = req.query.date;
+            const query = { date: date };
+
+            const result = await bookingCollection.find(query).toArray();
+            res.send(result);
+        });
+
         app.post('/booking', async (req, res) => {
             const booking = req.body;
             const query = {
@@ -243,6 +258,13 @@ async function run() {
             }
             const updatedBooking = await bookingCollection.updateOne(filter, updateDoc);
             const result = await paymentCollection.insertOne(paymentInfo);
+            res.send(result);
+        });
+
+        app.delete('/booking/:id', verifyJWT, verifyAdmin, async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await bookingCollection.deleteOne(query);
             res.send(result);
         });
 
