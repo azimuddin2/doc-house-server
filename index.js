@@ -67,6 +67,7 @@ async function run() {
         };
 
 
+
         // users related api
         app.get('/users', verifyJWT, verifyAdmin, async (req, res) => {
             const query = {};
@@ -122,6 +123,7 @@ async function run() {
         });
 
 
+
         // doctors related api
         app.post('/doctors', verifyJWT, verifyAdmin, async (req, res) => {
             const doctorInfo = req.body;
@@ -136,9 +138,22 @@ async function run() {
             res.send(result);
         });
 
+        app.get('/doctorsCount', async (req, res) => {
+            const result = await doctorsCollection.estimatedDocumentCount();
+            res.send({ doctorsCount: result });
+        });
+
         app.get('/doctors', verifyJWT, verifyAdmin, async (req, res) => {
-            const query = {};
-            const result = await doctorsCollection.find(query).toArray();
+            const query = req.query.search;
+            let cursor;
+
+            if (query) {
+                cursor = doctorsCollection.find({ name: { $regex: query, $options: 'i' } })
+            } else {
+                cursor = doctorsCollection.find();
+            }
+
+            const result = await cursor.toArray();
             res.send(result);
         });
 
@@ -148,6 +163,7 @@ async function run() {
             const result = await doctorsCollection.deleteOne(query);
             res.send(result);
         });
+
 
 
         // home page api
@@ -203,6 +219,7 @@ async function run() {
         });
 
 
+        
         // booking related api
         app.get('/bookings', verifyJWT, verifyAdmin, async (req, res) => {
             const date = req.query.date;
