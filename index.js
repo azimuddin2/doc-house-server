@@ -49,10 +49,15 @@ async function run() {
         const paymentCollection = client.db('docHouse').collection('payments');
         const reviewsCollection = client.db('docHouse').collection('reviews');
 
-        app.post('/jwt', (req, res) => {
-            const user = req.body;
-            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '7d' });
-            res.send({ token });
+        app.get('/jwt', async (req, res) => {
+            const email = req.query.email;
+            const query = { email: email };
+            const user = await usersCollection.findOne(query);
+            if (user) {
+                const token = jwt.sign({ email }, process.env.ACCESS_TOKEN_SECRET);
+                return res.send({ accessToken: token });
+            }
+            res.status(403).send({ accessToken: '' });
         });
 
         const verifyAdmin = async (req, res, next) => {
@@ -135,7 +140,7 @@ async function run() {
             const user = await usersCollection.findOne(query);
             const result = { admin: user?.role === 'admin' };
             res.send(result);
-        })
+        });
 
         app.patch('/users/admin/:id', verifyJWT, verifyAdmin, async (req, res) => {
             const id = req.params.id;
